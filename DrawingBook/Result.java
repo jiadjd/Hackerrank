@@ -25,8 +25,13 @@ class Result {
 
     public static int pageCount(int n, int p) {
     // Write your code here
-        int leftTurn = (int)Math.ceil(p/2);
-        int rightTurn = (int)Math.ceil((n-p)/2);
+    	int leftTurn = (int)Math.ceil((float)(p-1)/2);
+        int rightTurn = 0;
+        if(n%2 == 0) {
+            rightTurn = (int)Math.ceil((float)(n-p)/2);
+        } else {
+            rightTurn = (int)Math.ceil((n-p)/2);
+        }
         return Math.min(leftTurn, rightTurn);
     }
 

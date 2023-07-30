@@ -26,7 +26,6 @@ class Result {
     public static int superDigit(String n, int k) {
     // Write your code here
         n = n.replaceAll("\\s", "");
-        int result = 10;
         char[] nums = n.toCharArray();
         long sum = 0;
         for(char c: nums) {

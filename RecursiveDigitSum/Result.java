@@ -25,27 +25,30 @@ class Result {
 
     public static int superDigit(String n, int k) {
     // Write your code here
+        n = n.replaceAll("\\s", "");
         int result = 10;
-        while(result >= 10) {
-            result = makeSum(n);
-            n = Integer.toString(result);
+        char[] nums = n.toCharArray();
+        long sum = 0;
+        for(char c: nums) {
+            int value = Character.getNumericValue(c);
+            sum = sum + value * k;
         }
-        result = result * k;
-        n = Integer.toString(result);
-        while(result >= 10) {
-            result = makeSum(n);
-            n = Integer.toString(result);
+        String s = String.valueOf(sum);
+        while(sum >= 10) {
+            sum = getSum(s);
+            s = String.valueOf(sum);
         }
-        return result;
+        return (int)sum;
     }
     
     private static int makeSum(String n) {
-        int result = 0;
-        char[] nums = n.toCharArray();
-        for(int i=0; i<nums.length; i++) {
-            result += Integer.parseInt(String.valueOf(nums[i]));
+        long sum = 0;
+        char[] nums = s.toCharArray();
+        for(char c: nums) {
+            int value = Character.getNumericValue(c);
+            sum += value;
         }
-        return result;
+        return sum;
     }
 
 }

@@ -82,19 +82,18 @@ class Result {
      */
 
     public static DoublyLinkedListNode reverse(DoublyLinkedListNode llist) {
-    // Write your code here
-        DoublyLinkedListNode current = llist;
-        DoublyLinkedListNode previous = null;
+    	DoublyLinkedListNode c = llist;
+        DoublyLinkedListNode p = null;
         
-        while (current != null) {
-            DoublyLinkedListNode next = current.next;
-            current.next = previous;
-            if(current.prev != null) current.prev = previous;
-            previous = current;
-            current = next;
-            
+        while(c != null) {
+            DoublyLinkedListNode n = c.next;
+            c.next = p;
+            if(p != null) p.prev = c;
+            p = c;
+            c = n;
         }
-        return previous;
+        
+        return p;
     }
 
 }

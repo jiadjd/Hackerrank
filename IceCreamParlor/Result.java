@@ -24,16 +24,18 @@ class Result {
      */
 
     public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
-    // Write your code here
-        List<Integer> result = new ArrayList<Integer>();
-        for(int i=0; i<arr.size()-1; i++) {
-            for(int j=i+1; j<arr.size(); j++) {
-                if(arr.get(i) + arr.get(j) == m) {
-                    result.add(i+1);
-                    result.add(j+1);
-                }
+    	List<Integer> result = new ArrayList<>();
+        
+        for(int i = 0; i < arr.size(); i ++) {
+            int p = m - arr.get(i);
+            int index = arr.indexOf(p);
+            if(index != -1 && index != i) {
+                result.add(Math.min(i, index) + 1);
+                result.add(Math.max(i, index) + 1);
+                break;
             }
         }
+        
         return result;
     }
 
